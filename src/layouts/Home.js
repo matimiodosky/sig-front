@@ -23,6 +23,7 @@ import Vehicles from "../views/Vehicles/Vehicles";
 import NewVehicle from "../views/Vehicles/NewVehicle";
 import Logout from "../views/Logout/Logout";
 import Verification from "../views/Verification/Verification";
+import Indicators from "../views/Indicators/Indicators";
 
 let ps;
 
@@ -32,6 +33,7 @@ const switchRoutes = (
         <Route from="/app/vehicles/new" component={NewVehicle}/>
         <Route from="/app/vehicles/:id" component={Vehicle}/>
         <Route from="/app/vehicles" component={Vehicles}/>
+        <Route from="/app/indicators" component={Indicators}/>
         <Route from="/app/logout" component={Logout}/>
         <Redirect from="/app" to="/app/vehicles"/>
     </Switch>

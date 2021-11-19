@@ -18,9 +18,10 @@
 // @material-ui/icons
 import LocalShipping from "@material-ui/icons/LocalShipping";
 import VehiclesPage from "views/Vehicles/Vehicles.js";
+import IndicatorsPage from "views/Indicators/Indicators.js";
 import Button from "./components/CustomButtons/Button";
 import React from "react";
-import {ExitToApp} from "@material-ui/icons";
+import {ExitToApp, Timeline} from "@material-ui/icons";
 import Logout from "./views/Logout/Logout";
 import Vehicle from "./views/Vehicles/Vehicle";
 
@@ -30,6 +31,13 @@ const dashboardRoutes = [
     name: "Camiones",
     icon: LocalShipping,
     component: VehiclesPage,
+    layout: "/app",
+  },
+  {
+    path: "/indicators",
+    name: "Indicadores",
+    icon: Timeline,
+    component: IndicatorsPage,
     layout: "/app",
   },
   {
