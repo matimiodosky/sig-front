@@ -54,6 +54,7 @@
   "devDependencies": {
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
+    "file-saver": "^2.0.5",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
     "jsonwebtoken": "^8.5.1",

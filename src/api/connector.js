@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = 'https://sig-server.herokuapp.com'
+// const BASE_URL = 'https://sig-server.herokuapp.com'
+const BASE_URL = 'http://localhost:8081'
 
 
 // Add a response interceptor
@@ -24,6 +25,14 @@ export const getVehicles = async () => {
 export const getVehicle = async (id) => {
 
     return axios.get(`${BASE_URL}/items/${id}`)
+        .then(res => res.data)
+        .catch(e => [])
+}
+
+
+export const getProcess = async (id) => {
+
+    return axios.get(`${BASE_URL}/processes/${id}`)
         .then(res => res.data)
         .catch(e => [])
 }

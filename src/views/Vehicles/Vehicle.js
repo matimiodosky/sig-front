@@ -20,6 +20,7 @@ import {Add, Launch} from "@material-ui/icons";
 import Checkbox from "@material-ui/core/Checkbox";
 import Check from "@material-ui/icons/Check";
 import Button from "components/CustomButtons/Button.js";
+import VehicleDetails from "./VehicleDetails";
 
 const styles = {
     cardCategoryWhite: {
@@ -107,36 +108,7 @@ const Vehicle = () => {
                 {
                     !loading && vehicle &&
                     <GridItem xs={12} sm={6} md={3} style={{maxWidth: '100%', flexBasis: '100%'}}>
-                        <Card>
-                            <CardHeader color="primary" stats icon>
-                                <CardIcon color="primary">
-                                    <LocalShipping/>
-                                </CardIcon>
-                            </CardHeader>
-                            <CardBody>
-                                {[...Object.entries(vehicle.fields)
-                                    .map(([key, value]) => <div>
-                                            <p><b>{key}: </b>{value}</p>
-                                        </div>
-                                    ),
-                                    <div style={{display: 'flex', flexDirection:'row', alignItems: 'center', gap: '2%'}}>
-                                        <p><b>Estado: </b>{vehicle.state}</p>
-                                        {showVerify && <Link to={`/app/vehicles/${vehicle.id}/verify`}>
-                                            <Button type={'button'} color={'primary'}>
-                                                Verificar
-                                            </Button>
-                                        </Link>}
-                                    </div>
-                                ]}
-                            </CardBody>
-                            <CardFooter stats>
-
-                                <div>
-                                    <DateRange/>
-                                    {`Creado: ${moment(vehicle.date).format('DD/MM/YYYY HH:mm')}`}
-                                </div>
-                            </CardFooter>
-                        </Card>
+                       <VehicleDetails vehicle={vehicle} showVerify={showVerify}/>
                     </GridItem>
                 }
                 {!loading && vehicle && <GridItem xs={12} sm={6} md={3} style={{maxWidth: '100%', flexBasis: '100%'}}>
@@ -158,7 +130,12 @@ const Vehicle = () => {
                                     vehicle.processes.map(process => [
                                         moment(process.createdAt).format('DD/MM/YYYY HH:mm'),
                                         process.finishAt ? moment(process.finishAt).format('DD/MM/YYYY HH:mm') : '',
-                                        process.finishAt ? `${ moment(process.finishAt).diff(process.createdAt, 'minutes')} minutos` : ''
+                                        process.finishAt ? `${ moment(process.finishAt).diff(process.createdAt, 'minutes')} minutos` : '',
+                                        <Link to={`/app/vehicles/${vehicle.id}/processes/${process.id}`}>
+                                            <IconButton aria-label="Edit">
+                                                <Launch/>
+                                            </IconButton>
+                                        </Link>
                                     ])
                                 }
                                 emptyMessage={"Sin ingresos hasta el momento"}

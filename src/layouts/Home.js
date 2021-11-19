@@ -20,6 +20,7 @@ import logo from "assets/img/reactlogo.png";
 import Button from "../components/CustomButtons/Button";
 import Vehicle from "../views/Vehicles/Vehicle";
 import Vehicles from "../views/Vehicles/Vehicles";
+import Process from "../views/Processes/Process";
 import NewVehicle from "../views/Vehicles/NewVehicle";
 import Logout from "../views/Logout/Logout";
 import Verification from "../views/Verification/Verification";
@@ -29,6 +30,7 @@ let ps;
 
 const switchRoutes = (
     <Switch>
+        <Route from="/app/vehicles/:vehicleId/processes/:processId" component={Process}/>
         <Route from="/app/vehicles/:id/verify" component={Verification}/>
         <Route from="/app/vehicles/new" component={NewVehicle}/>
         <Route from="/app/vehicles/:id" component={Vehicle}/>
