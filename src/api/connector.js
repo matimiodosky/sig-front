@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = 'https://sig-server.herokuapp.com'
-const BASE_URL = 'http://localhost:8081'
+const BASE_URL = 'https://sig-server.herokuapp.com'
+// const BASE_URL = 'http://localhost:8081'
 
 
 // Add a response interceptor
